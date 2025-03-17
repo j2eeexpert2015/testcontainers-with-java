@@ -1,5 +1,6 @@
 package com.example.retail;
 
+import com.example.constants.DockerImageConstants;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +18,7 @@ class OrderServiceTest {
   Logger logger = LoggerFactory.getLogger(OrderServiceTest.class);
 
   static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-    "postgres:16-alpine"
+          DockerImageConstants.POSTGRES_IMAGE
   );
 
   OrderService orderService;

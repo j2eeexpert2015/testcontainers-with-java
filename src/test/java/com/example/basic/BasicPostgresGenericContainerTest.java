@@ -1,5 +1,6 @@
 package com.example.basic;
 
+import com.example.constants.DockerImageConstants;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,7 @@ public class BasicPostgresGenericContainerTest {
      */
     @Test
     void shouldSucceedWithGenericContainerWithEnv() {
-        GenericContainer<?> postgres = new GenericContainer<>("postgres:latest")
+        GenericContainer<?> postgres = new GenericContainer<>(DockerImageConstants.POSTGRES_IMAGE)
                 .withExposedPorts(5432)
                 .withEnv("POSTGRES_USER", "testuser")       // Setting user
                 .withEnv("POSTGRES_PASSWORD", "testpassword") // Setting required password
@@ -39,7 +40,7 @@ public class BasicPostgresGenericContainerTest {
      */
     @Test
     void shouldFailWithGenericContainerWithoutEnv() {
-        GenericContainer<?> postgres = new GenericContainer<>("postgres:latest")
+        GenericContainer<?> postgres = new GenericContainer<>(DockerImageConstants.POSTGRES_IMAGE)
                 .withExposedPorts(5432); // No environment variables provided
 
         logger.info("Attempting to start PostgreSQL container without environment variables...");
@@ -59,7 +60,7 @@ public class BasicPostgresGenericContainerTest {
      */
     @Test
     void shouldSucceedWithPostgreSQLContainer() {
-        try (PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:latest")) {
+        try (PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(DockerImageConstants.POSTGRES_IMAGE)) {
             logger.info("Starting PostgreSQL container using PostgreSQLContainer...");
 
             postgres.start(); // Should start successfully

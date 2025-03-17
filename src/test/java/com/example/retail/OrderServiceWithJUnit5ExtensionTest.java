@@ -1,5 +1,6 @@
 package com.example.retail;
 
+import com.example.constants.DockerImageConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ class OrderServiceWithJUnit5ExtensionTest {
 
   @Container
   static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-    "postgres:16-alpine"
+          DockerImageConstants.POSTGRES_IMAGE
   );
 
   OrderService orderService;
