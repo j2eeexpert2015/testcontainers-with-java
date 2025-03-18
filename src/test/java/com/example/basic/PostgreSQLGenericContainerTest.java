@@ -9,11 +9,11 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BasicPostgresGenericContainerTest {
-    private static final Logger logger = LoggerFactory.getLogger(BasicPostgresGenericContainerTest.class);
+public class PostgreSQLGenericContainerTest {
+    private static final Logger logger = LoggerFactory.getLogger(PostgreSQLGenericContainerTest.class);
 
     /**
-     * This test **succeeds** because we explicitly provide `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB`.
+     * This test succeeds as  we explicitly provide `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB`.
      * These environment variables allow PostgreSQL to start successfully.
      */
     @Test
@@ -35,7 +35,7 @@ public class BasicPostgresGenericContainerTest {
     }
 
     /**
-     * This test demonstrates failure when using `GenericContainer` **without setting environment variables**.
+     * This test demonstrates failure when using `GenericContainer` without setting environment variables*
      * PostgreSQL requires `POSTGRES_PASSWORD`, but it is missing here, causing container startup failure.
      */
     @Test
